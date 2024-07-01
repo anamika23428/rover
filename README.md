@@ -21,7 +21,7 @@ $ sudo apt install ros-noetic-turtlebot3-msgs
 $ sudo apt install ros-noetic-turtlebot3
 ```
 
-## save the world in gazebo
+## saving the world in gazebo
 Copy the model of your world in models directory of gazebo
 
 example :
@@ -30,12 +30,12 @@ I have choosen Hospital model from the repo:
 
 https://github.com/mlherd/Dataset-of-Gazebo-Worlds-Models-and-Maps.git
 
-![example gazebo files](images/gazebo.png)
+![example gazebo files](gazebo.png)
 
 Your gazebo should look like this.
 
 
-## Visualizing the robot environment using RVIZ
+# Visualizing the robot environment using RVIZ
 
 
 ### Launch Simulation World
@@ -68,3 +68,33 @@ When the map is created successfully, open a new terminal and save the map using
 ```
 $ rosrun map_server map_saver -f ~/map
 ```
+# Navigation Simulation
+### Launch Simulation World
+
+After saving the proper map, exit all terminals. 
+Again launch simulation world 
+```
+$ export TURTLEBOT3_MODEL=burger
+$ roslaunch turtlebot3_gazebo turtlebot3_world.launch
+```
+### Run Navigation Node
+Open a new terminal and run the Navigation node.
+```
+$ export TURTLEBOT3_MODEL=burger
+$ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/map.yaml
+```
+### Estimate Initial Pose
+TurtleBot3 has to be correctly located on the map.
+1. Click the `2D Pose Estimate` button in the RViz menu.
+2. Click on the map where the actual robot is located and drag the large green arrow toward the direction where the robot is facing.
+3. Repeat step 1 and 2 until the LDS sensor data is overlayed on the saved map.
+4. Launch keyboard teleoperation node to precisely locate the robot on the map.
+```
+$ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
+```
+5. Move the robot back and forth a bit to collect the surrounding environment information and narrow down the estimated location of the TurtleBot3 on the map which is displayed with tiny green arrows.
+6. Terminate the keyboard teleoperation node.
+
+### Set Navigation Goal
+1. Click the `2D Nav Goal button` in the RViz menu.
+2. Click on the map to set the destination of the robot and drag the green arrow toward the direction where the robot will be facing. 
