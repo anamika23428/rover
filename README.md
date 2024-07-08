@@ -45,7 +45,6 @@ Your gazebo should look like this.
 $ export TURTLEBOT3_MODEL=burger
 $ export GAZEBO_MODEL_PATH=/home/anamika/.gazebo/models/hospital/hospital_models/
 $ roslaunch my_pack turtlebot3_custom_world.launch 
-# 
 ```
 ### Run SLAM Node
 Open a new terminal and run the SLAM node.
@@ -97,4 +96,15 @@ $ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 
 ### Set Navigation Goal
 1. Click the `2D Nav Goal button` in the RViz menu.
-2. Click on the map to set the destination of the robot and drag the green arrow toward the direction where the robot will be facing. 
+2. Click on the map to set the destination of the robot and drag the green arrow toward the direction where the robot will be facing.
+
+## Vedio Demonstration
+[![Watch the video](https://img.youtube.com/vi/a6adL3_-4CY/0.jpg)](https://youtu.be/a6adL3_-4CY)
+
+
+### Notes:
+- Replace `my_pack` with your actual ROS package name where applicable.
+- Adjust paths (`/home/anamika/.gazebo/models/hospital/hospital_models/`, `$HOME/map.yaml`, etc.) according to your setup.
+- Ensure all ROS packages are installed correctly as per the instructions.
+
+This Markdown structure provides clear sections for different setup and simulation steps, making it easier for users to follow and execute. Adjust it further based on specific details or additional instructions you may need to include.
