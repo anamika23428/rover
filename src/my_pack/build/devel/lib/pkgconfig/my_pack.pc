@@ -1,0 +1,8 @@
+prefix=/home/anamika/rover_ws/src/my_pack/build/devel
+
+Name: my_pack
+Description: Description of my_pack
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
